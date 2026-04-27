@@ -235,13 +235,22 @@ The agent uses a **two-step architecture**:
 ## 📁 Project Structure
 
 ```
-openclaw-discord-agent/
-│
-├── Agent.py          # Main bot file — all logic in one place
-├── .env              # Your API keys (never committed)
-├── .env.example      # Template for others
-├── .gitignore        # Ignores .env, agentenv/, __pycache__/
-└── README.md         # This file
+discord_agent/
+├── main.py              ← Bot entry point, Discord events & all prefix commands
+├── agent.py             ← The "brain" — routes messages, dispatches tools, builds replies
+├── config.py            ← All constants & env vars in one place
+├── requirements.txt
+├── .env.example
+├── utils/
+│   ├── llm.py           ← Ollama API wrapper
+│   ├── search.py        ← Wikipedia → Bing search
+│   └── router.py        ← Tool registry, LLM prompts, JSON extractor
+└── cogs/
+    ├── info.py          ← Weather, time, calculator, scheduler, server creation
+    ├── music.py         ← yt-dlp playback, queue management
+    ├── fun.py           ← Jokes, Magic 8-Ball, roasts, memes, all mini-games
+    ├── leveling.py      ← XP system, level-up, leaderboard
+    └── moderation.py    ← Bad-word filter, warn, mute, purge
 ```
 
 ---
