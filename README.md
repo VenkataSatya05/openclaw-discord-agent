@@ -101,8 +101,11 @@ OPENWEATHER_API_KEY=your_openweather_api_key_here
 # Make sure Ollama is running first
 ollama serve
 
+# Make sure Openclaw gateway is running
+Openclaw gateway run
+
 # Then in a new terminal
-python Agent.py
+python main.py
 ```
 
 ---
